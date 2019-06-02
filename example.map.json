@@ -1,0 +1,61 @@
+{
+    "expenses": {
+        "Digital > Other": "Digital:Other",
+        "Digital > Apps": "Digital:Apps",
+        "Digital > Books": "Digital:Books",
+        "Digital > Movies": "Digital:Movies",
+        "Digital > 硬件设备": "Digital:Hardware",
+        "Transportation": "Transportation:Bus",
+        "Clothing > Clothes": "Clothing:Clothes",
+        "Clothing > Jewelry": "Clothing:Jewelry",
+        "Clothing > Shoes": "Clothing:Shoes",
+        "Clothing > Accessories": "Clothing:Accessories",
+        "Clothing > Other": "Clothing:Other",
+        "Food & Dining > Dining/Eating Out": "Food:EatingOut",
+        "Food & Dining > Groceries": "Food:Groceries",
+        "Food & Dining > 饭卡充值": "Food:MealCard",
+        "Bills > Other": "Bills:Other",
+        "Bills > Gas": "Bills:Gas",
+        "Bills > Mobile Phone": "Bills:Phone",
+        "Bills > Internet/Broadband": "Bills:Internet",
+        "Bills > Electricity": "Bills:Electricity",
+        "Bills > Water": "Bills:Water",
+        "Health Care > Medical": "Health:Medical",
+        "Health Care > Dental": "Health:Dental",
+        "Other": "Unknown",
+        "Loans": "Loans",
+        "Leisure > Fitness/Sport": "Leisure:Fitness",
+        "Leisure > Personal Care": "Leisure:PersonalCare",
+        "Leisure > Entertainment": "Leisure:Entertainment",
+        "Leisure > Other": "Leisure:Other",
+        "Housing > Home Insurance": "Housing:HomeInsurance",
+        "Housing > Maintenance": "Housing:Maintenance",
+        "Housing > Rent": "Housing:Rent",
+        "Housing > Mortgage": "Housing:Mortgage",
+        "Housing > Furniture/Accessories": "Housing:Furniture",
+        "Taxes": "Government:Taxes"
+    },
+    "incomes": {
+        "Salary & Wages": "Income:Salary",
+        "Rental": "Income:Rental"
+    },
+    "accounts": {
+        "浦发信用卡": "Liabilities:CreditCard:SPDB",
+        "现金": "Assets:Cash:CNY",
+        "中信借记卡": "Assets:DepositCard:CITIC",
+        "欧元": "Assets:Cash:EUR",
+        "汇丰信用卡": "Liabilities:CreditCard:HSBC",
+        "股票": "Assets:Broker:China",
+        "建行信用卡": "Liabilities:CreditCard:CCB",
+        "中行长城卡": "Liabilities:CreditCard:BOC",
+        "京东白条": "Liabilities:VirtualCard:JDbaitiao",
+        "捷克克朗": "Assets:Cash:CZK",
+        "美元": "Assets:Cash:USD"
+    },
+    "tags": {
+        "欧洲": "Europ #Travel",
+        "越南": "Vietnam #Travel",
+        "WeChat": "WeChat",
+        "Alipay": "Alipay"
+    }
+}
