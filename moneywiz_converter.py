@@ -82,7 +82,6 @@ def build_records(mapping, record):
                     return COMMON_TEMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
                         amount, currency, "Income:Newbalance", amount, currency)
             else:
-                # print(record)
                 if amount < 0:
                     amount = abs(amount)
                     if category:
@@ -94,7 +93,6 @@ def build_records(mapping, record):
                             amount, currency, "Expenses:Newbalance", amount, currency)
                 else:
                     # refund
-                    # print(record)
                     return EXPENSES_REFUND_TMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
                             amount, currency, mapping['expenses'][category], amount, currency)
 
@@ -112,5 +110,5 @@ if __name__ == '__main__':
     locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
     mapping = load_json(path.join(os.path.dirname(os.path.realpath(__file__)), 'map.json'))
-    records = load_csv('report.csv', True)
+    records = load_csv('../documents/moneywiz/201908report.csv', True)
     print_records(mapping, records)
