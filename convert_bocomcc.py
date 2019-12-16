@@ -13,7 +13,7 @@ def parse_bocm(filename):
             description = data[2]
             currency = data[4].split(' ')[0]
             amount = float(data[4].split(' ')[1])
-            print(get_notsure(date, description, amount, currency))
+            print(get_notsure(date, description, amount, currency, "Liabilities:CreditCard:BCM"))
 
 if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')

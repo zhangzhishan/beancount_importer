@@ -31,7 +31,7 @@
         "Housing > Home Insurance": "Housing:HomeInsurance",
         "Housing > Maintenance": "Housing:Maintenance",
         "Housing > Rent": "Housing:Rent",
-        "Housing > Mortgage": "Housing:Mortgage",
+        "Housing > Mortgage": "Equity:Loan:House",
         "Housing > Furniture/Accessories": "Housing:Furniture",
         "Taxes": "Government:Taxes"
     },

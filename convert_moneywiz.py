@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # coding: UTF-8
 
-import json
 import argparse
 import csv
 import datetime
@@ -10,16 +9,19 @@ import io
 import sys
 from os import path
 import locale
+from common import *
+from dotenv import load_dotenv
+
 
 
 EXPENSES_TMPLATE = """%s * %s
     %s                 -%s %s
-    Expenses:%s                 +%s %s
+    %s                 +%s %s
 """
 
 EXPENSES_REFUND_TMPLATE = """%s * %s
     %s                 +%s %s
-    Expenses:%s                 -%s %s
+    %s                 -%s %s
 """
 
 COMMON_TEMPLATE = """%s * %s
@@ -29,12 +31,7 @@ COMMON_TEMPLATE = """%s * %s
 
 
 
-def load_json(filename):
-    fd = open(filename, 'r', encoding="UTF-8")
-    data = fd.read()
-    js = json.loads(data)
-    fd.close()
-    return js
+
 
 def load_csv(filename, is_strip_head=False):
     fd = open(filename, 'r', encoding="UTF-8")
@@ -108,7 +105,9 @@ if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
     locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-
-    mapping = load_json(path.join(os.path.dirname(os.path.realpath(__file__)), 'map.json'))
-    records = load_csv('../documents/moneywiz/201908report.csv', True)
+    load_dotenv()
+    map_path = os.getenv("MAPPATH")
+    mapping = load_json(path.join(os.path.dirname(os.path.realpath(__file__)), map_path))
+    moneywiz_path = os.getenv("MONEYWIZPATH")
+    records = load_csv(moneywiz_path, True)
     print_records(mapping, records)
