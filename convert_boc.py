@@ -5,7 +5,7 @@ from common import *
 from dotenv import load_dotenv
 
 def parse_boc(filename):
-    account = "Liabilities:CreditCard:BCM"
+    account = "Liabilities:CreditCard:BOC"
     with open(filename, 'r', encoding="UTF-8") as f:
         for line in f.readlines()[0:]:
             line = line.strip()

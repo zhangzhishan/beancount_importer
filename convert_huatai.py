@@ -104,8 +104,8 @@ if __name__ == '__main__':
 
     locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
     folder = "../documents/huatai/"
-    out_filename = "../stock.bean"
-    # out_filename = "../stock" + str(time.time()) + ".bean"
+    # out_filename = "../stock.bean"
+    out_filename = "../stock" + str(time.time()) + ".bean"
     allfiles = [f for f in os.listdir(folder) if isfile(os.path.join(folder, f))]
     for filename in allfiles:
         # print(filename)
