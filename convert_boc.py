@@ -18,7 +18,7 @@ def parse_boc(filename):
             else:
                 amount = float(data[5].replace(',', ''))
 
-            print(get_notsure(date, description, amount, currency, account))
+            print(get_notsure(date, "", description, amount, currency, account))
 
 if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')

@@ -16,17 +16,17 @@ from dotenv import load_dotenv
 
 EXPENSES_TMPLATE = """%s * %s
     %s                 -%s %s
-    %s                 +%s %s
+    %s
 """
 
 EXPENSES_REFUND_TMPLATE = """%s * %s
     %s                 +%s %s
-    %s                 -%s %s
+    %s
 """
 
 COMMON_TEMPLATE = """%s * %s
     %s                 +%s %s
-    %s                 -%s %s
+    %s
 """
 
 
@@ -67,31 +67,31 @@ def build_records(mapping, record):
             if amount > 0:
                 # dedup the same transfer in different accounts
                 return COMMON_TEMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                    amount, currency, mapping['accounts'][transfers_to], amount, currency)
+                    amount, currency, mapping['accounts'][transfers_to])
         else:
             if amount > 0 and "Refund" not in description and "退货" not in description and "退款" not in description:
                 # Income, refund is added to expenses
                 if category:
                     return COMMON_TEMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                        amount, currency, mapping['incomes'][category], amount, currency)
+                        amount, currency, mapping['incomes'][category])
                 else:
                     # for new balance
                     return COMMON_TEMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                        amount, currency, "Income:Newbalance", amount, currency)
+                        amount, currency, "Income:Newbalance")
             else:
                 if amount < 0:
                     amount = abs(amount)
                     if category:
                         return EXPENSES_TMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                            amount, currency, mapping['expenses'][category], amount, currency)
+                            amount, currency, mapping['expenses'][category])
                     else:
                         # for new balance
                         return COMMON_TEMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                            amount, currency, "Expenses:Newbalance", amount, currency)
+                            amount, currency, "Expenses:Newbalance")
                 else:
                     # refund
                     return EXPENSES_REFUND_TMPLATE % (time, description_and_tags(description, tags), mapping['accounts'][account], 
-                            amount, currency, mapping['expenses'][category], amount, currency)
+                            amount, currency, mapping['expenses'][category])
 
 
 def print_records(mapping, records):
