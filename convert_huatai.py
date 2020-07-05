@@ -47,6 +47,7 @@ def load_json(filename):
     return js
 
 def load_csv(filename, is_strip_head=False):
+    print(filename)
     fd = open(filename, 'r', encoding="gb2312")
     csv_reader = csv.reader(fd, delimiter='\t')
     records = []
@@ -82,7 +83,7 @@ def build_records(record):
     elif trade_operation in only_pass_operation:
         pass
     else:
-        print(trade_operation)
+        print(record)
 
 
 
@@ -104,12 +105,10 @@ if __name__ == '__main__':
 
     locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
     folder = "../documents/huatai/"
-    # out_filename = "../stock.bean"
-    out_filename = "../stock" + str(time.time()) + ".bean"
     allfiles = [f for f in os.listdir(folder) if isfile(os.path.join(folder, f))]
     for filename in allfiles:
         # print(filename)
-        # print(os.path.splitext(filename)[0])
+        out_filename = "../stock" + os.path.splitext(filename)[0] + ".bean"
         records = load_csv(os.path.join(folder, filename), True)
         # print_records(records)
         print_records_to_file(records, out_filename)
