@@ -1,15 +1,20 @@
 from datetime import date
 import json
 import easyquotation
+from dotenv import load_dotenv
+import os
 
 
 CURRENCY = "CNY"
 TIME_DELAY = 1
-# my_stock = ["002304", "600018", "600026", "600837", "601872", "000100", "000425", "601021", "511880"]
+
+load_dotenv()
+my_stock = os.getenv("MYSTOCK")
+my_stock = my_stock.split(',')
 
 quotation = easyquotation.use("sina")
 all_data = quotation.real(my_stock)
-print(all_data)
+# print(all_data)
 for key, data in all_data.items():
     print(date.today().strftime("%Y-%m-%d") + " price " + 'S' + key + " " + str(data["now"]) + " " + CURRENCY + " ; " + data["name"])
 
